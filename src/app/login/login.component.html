@@ -1,0 +1,23 @@
+
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form #loginForm="ngForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" name="username" ngModel #username="ngModel" placeholder="..." required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" name="password" ngModel #password="ngModel" placeholder="..." required>
+          </div>
+
+        </div>
+        <div class="button">
+          <button type="submit" (click)="loginAdmin(loginForm)">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+

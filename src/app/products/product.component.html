@@ -1,0 +1,90 @@
+<div role="navigation" id="nav">
+    <ul>
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Projects</a></li>
+      <li><a href="#">Blog</a></li>
+    </ul>
+ </div>
+
+
+
+ <div role="main" class="main">
+
+    <form #filterForm="ngForm">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>
+                        Size
+                    </th>
+                    <th>
+                        Brand
+                    </th>
+                    <th>
+                        Model
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="size" ngModel #size="ngModel" id="size">
+                            <option value="" *ngFor="let product of products">{{product.size}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="brand" ngModel #brand="ngModel">
+                            <option value="" *ngFor="let product of products">{{product.brand}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="model" ngModel #model="ngModel">
+                            <option value="" *ngFor="let product of products">{{product.car}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button type="submit" (click)="filterProducts(filterForm)">Apply</button>
+                    </td>
+                  <td>
+                    <button type="button">Search</button>
+                  </td>
+                </tr>
+                <!-- and so on... -->
+            </tbody>
+          </table>
+    </form>
+
+
+
+
+    <div class="wrapper products">
+        
+            <div class="product" *ngFor="let product of products.data">
+                <form #productForm="ngForm">
+                <h1>{{product.brand}}</h1>
+                <div class="product__img">
+                    <img src="{{product.img}}" alt="" width="360">
+                </div>
+                <input type="number" name="qty" ngModel #qty="ngModel" min="0" max="30" value="0" style="text-align: center; margin-bottom: 20px;">
+                <div class="product__info">
+                    <p>Size-{{product.size}}</p>
+                    <p>Car Model-{{product.car}}</p>
+                    <button type="submit" (click)="addToCart(product._id, product.price, productForm)">
+                        Add
+                    </button>
+                    <span class="product__price">{{product.price}}</span>
+                </div>
+            </form>
+            </div>
+        
+
+    </div>
+
+
+    
+
+
+ </div>

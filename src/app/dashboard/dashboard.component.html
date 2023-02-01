@@ -1,0 +1,31 @@
+
+
+    <div role="navigation" id="nav">
+        <ul>
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+     </div>
+  
+
+
+     <div role="main" class="main">
+        <h1>Create New Product</h1>
+        <form class="cf" #tireForm="ngForm">
+          <div class="half left cf">
+            <input type="text" id="input-name" name="brand" ngModel #brand="ngModel" placeholder="Tire Brand">
+            <input type="text" id="input-email" name="size" ngModel #size="ngModel" placeholder="Tire Size">
+            <input type="text" id="input-email" name="car" ngModel #car="ngModel" placeholder="Car Brand">
+            <input type="text" id="input-subject" name="price" ngModel #price="ngModel" placeholder="Tire Price">
+            <input type="file" id="input-name" (change)="onImagePicked($any($event))" placeholder="Upload Image">
+          </div>
+          <div class="half right cf">
+            <textarea name="description" ngModel #description="ngModel" type="text" id="input-message" placeholder="Message"></textarea>
+          </div>
+          <button type="submit" value="Submit" id="input-submit" (click)="onUpload(tireForm)">Submit</button>
+        </form>
+     </div>
+
+     <button type="submit" (click)="authUser()">User</button>
